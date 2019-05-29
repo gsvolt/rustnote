@@ -367,6 +367,7 @@ target
 # Visual Studio Code
 
 Install these extensions (in order):
+
 - [Rust (rls) Extension:rust-lang.rust](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust)
 - [CodeLLDB Extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
 
