@@ -11,3 +11,6 @@ Cargo.lock
 
 out/
 src/hello_cargo/target/
+src/hello_world/target/
+src/guessing_game/target/
+
