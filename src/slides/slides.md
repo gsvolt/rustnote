@@ -1,3 +1,7 @@
+---
+header-includes:
+  - \usepackage{multicol}
+---
 # Rust
 
 ![](img/Rust_programming_language_black_logo.svg)
@@ -6,34 +10,12 @@
 #### Spring, 2019
 
 # Contents
- 
-. . .
- 
 - Facts
-
-. . .
-
-
 - Installation on Linux
-
-. . .
-
-
 - Hello World
-
-. . .
-
-
 - How to build and run
-
-. . .
-
-- Generate package
- 
-. . .
-
+- Generate package 
 - Complicated project
- 
 
 # Facts
  
@@ -56,6 +38,41 @@
 
 
 - Security conscious programming
+
+# Historical Context
+
+Since 2000, developers have had issues
+
+- Wrote sequential code to multi-threaded/multi-core apps
+- Data race issues
+- Memory leaks
+- Big RAM Consumption
+
+# This Tall
+
+![](img/thistall.jpg){height=450px}
+
+- [Must be this tall to write multi-threaded code](https://bholley.net/blog/2015/must-be-this-tall-to-write-multi-threaded-code.html)
+
+# Rust
+
+. . .
+ 
+Modern, safe, fast, concurrent systems programming language
+ 
+. . .
+ 
+ 
+# Rust - Features
+
+- Immutability (default)
+- Memory leaks, data race safety, raised at compilation time
+- Zero-cost abstraction
+- Define type behaviours with traits
+- Rich build tool (cargo)
+- Generics
+- Multiple meta programming levels
+- Rich error handling
 
 
 # Installation on Linux
@@ -364,6 +381,28 @@ target
 
 ```
 
+# Guessing Game
+ 
+. . .
+ 
+```rust
+use std::io;
+
+fn main() {
+    println!("Guess the number!");
+
+    println!("Please input your guess.");
+
+    let mut guess = String::new();
+
+    io::stdin().read_line(&mut guess)
+        .expect("Failed to read line");
+
+    println!("You guessed: {}", guess);
+}
+```
+
+
 # Visual Studio Code
 
 Install these extensions (in order):
@@ -371,8 +410,75 @@ Install these extensions (in order):
 - [Rust (rls) Extension:rust-lang.rust](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust)
 - [CodeLLDB Extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
 
+# Variables
+ 
+. . .
+ 
+```rust
+let foo = bar; // Immutable
+```
+ 
+. . .
+ 
+```rust
+let mut foo = bar; // Mutable
+```
+
+
 # References
 
-- [The Rust Programming Language Book](https://doc.rust-lang.org/book)
+\Begin{multicols}{2}
+
+### One
+- [Rust Programming Language - Home](https://www.rust-lang.org)
+- [Rust Programming Language Book](https://doc.rust-lang.org/book)
+- [Rust by Example](https://doc.rust-lang.org/rust-by-example/index.html)
+- [Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/)
+- [24 Days of Rust](http://zsiciarz.github.io/24daysofrust/)
 - [Why I love Rust](https://alexkitchens.net/2018/07/06/why-i-love-rust.html)
 - [Debug Rust with VS Code](https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/)
+- [RustBridge](https://rustbridge.com/)
+- [RustConf](https://www.rustconf.com/)
+
+### Two
+- [Mozilla Research: Rust language](https://research.mozilla.org/rust/)
+- [Mozilla Hacks: Rust Articles](https://hacks.mozilla.org/category/rust-2/)
+- [Rust Playground](https://play.rust-lang.org)
+- [Rust-lang Discord](https://discordapp.com/invite/rust-lang)
+- [Rustaceans](https://www.rustaceans.org/)
+- [Crates](https://crates.io/)
+
+\End{multicols}
+
+# Questions?
+
+
+# Trivia
+
+Rust is named after:
+
+1. The color an old car from the 50's would be in today's time?
+2. A lesser known fungi?
+3. A town in Germany?
+4. Rust belt, our very own north eastern region?
+5. A finnish rock band? 
+
+ 
+. . .
+ 
+Answer: 
+ 
+. . .
+ 
+2. A lesser known fungi
+
+ 
+# Rust - Fungi
+ 
+- Pathogenic Fungi
+- Scientific classification: Puccinia (Fungi)
+- Obligate pathogen - bacteria that must cause disease in order to be transmitted from one host to another
+- Cannot survive without the plants they infect
+- Infect plants like: White Pine, Wheat, Soybean, Coffee, etc.
+
+# Thanks!
