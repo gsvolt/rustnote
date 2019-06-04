@@ -1,45 +1,24 @@
----
-header-includes:
-  - \usepackage{multicol}
----
-# Rust
+% Rust
+% Gaurav Saxena
+% June 4, 2019
+
+# Introduction
+
+## Rust
 
 ![](img/Rust_programming_language_black_logo.svg)
 
-### Gaurav Saxena
-#### Spring, 2019
-
-# Contents
-- Facts
-- Installation on Linux
-- Hello World
-- How to build and run
-- Generate package 
-- Complicated project
-
-# Facts
- 
-. . .
+## Facts
  
 - Most loved programming language
 ![Most Loved](img/most_loved.png)
-
-. . .
-
-
 - Write software fast
-
-. . .
-
-
 - Community Owned
-
-. . .
-
-
 - Security conscious programming
+- Strong static type system
+- Expression-based language
 
-# Historical Context
+## Historical Context
 
 Since 2000, developers have had issues
 
@@ -48,22 +27,20 @@ Since 2000, developers have had issues
 - Memory leaks
 - Big RAM Consumption
 
-# This Tall
+## This Tall
 
 ![](img/thistall.jpg){height=450px}
 
 - [Must be this tall to write multi-threaded code](https://bholley.net/blog/2015/must-be-this-tall-to-write-multi-threaded-code.html)
 
-# Rust
+
+## Rust
 
 . . .
  
 Modern, safe, fast, concurrent systems programming language
- 
-. . .
- 
- 
-# Rust - Features
+
+## Rust - Features
 
 - Immutability (default)
 - Memory leaks, data race safety, raised at compilation time
@@ -75,18 +52,12 @@ Modern, safe, fast, concurrent systems programming language
 - Rich error handling
 
 
-# Installation on Linux
- 
-. . .
- 
+# Installation
+
+## Linux
+
 - Rust specific binaries: rustup, cargo, rustc
- 
-. . .
- 
 - Installed by default into: ~/.cargo/bin
- 
-. . .
- 
 - Script that does the installation:
 ```bash
 curl https://sh.rustup.rs -sSf | sh
@@ -94,7 +65,7 @@ curl https://sh.rustup.rs -sSf | sh
 source $HOME/.cargo/env
 ```
 
-# Sample run of script
+## Sample run of script
 
 ```
 info: downloading installer
@@ -156,11 +127,11 @@ environment variable. Next time you log in this will be done automatically.
 To configure your current shell run source $HOME/.cargo/env
 ```
 
-# Post Installation 
+## Post Installation 
 
 - Verify versions
 
-```
+```bash
 rustc --version
 cargo --version
 rustup --version
@@ -168,62 +139,98 @@ rustup --version
 
 . . .
 
-
 ```
 rustc 1.34.2 (6c2484dc3 2019-05-13)
 cargo 1.34.0 (6789d8a0a 2019-04-01)
 rustup 1.18.2 (a0bf3c9cb 2019-05-02)
 ```
 
-
-# Updates
+## Updates
 
 ```
 rustup update
 ```
+ 
+. . .
+ 
+```bash
+$ rustup update stable
+info: syncing channel updates for 'stable-x86_64-unknown-linux-gnu'
+info: latest update on 2019-05-23, rust version 1.35.0 (3c235d560 2019-05-20)
+info: downloading component 'rustc'
+ 88.4 MiB /  88.4 MiB (100 %)  10.8 MiB/s ETA:   0 s
+info: downloading component 'rust-std'
+ 59.1 MiB /  59.1 MiB (100 %)  11.1 MiB/s ETA:   0 s
+info: downloading component 'cargo'
+info: downloading component 'rust-docs'
+info: downloading component 'rls'
+info: downloading component 'rust-src'
+info: downloading component 'rust-analysis'
+info: removing component 'rustc'
+info: removing component 'rust-std'
+info: removing component 'cargo'
+info: removing component 'rust-docs'
+info: removing component 'rls'
+info: removing component 'rust-src'
+info: removing component 'rust-analysis'
+info: installing component 'rustc'
+ 88.4 MiB /  88.4 MiB (100 %)  17.1 MiB/s ETA:   0 s
+info: installing component 'rust-std'
+ 59.1 MiB /  59.1 MiB (100 %)  19.7 MiB/s ETA:   0 s
+info: installing component 'cargo'
+info: installing component 'rust-docs'
+ 10.4 MiB /  10.4 MiB (100 %)   7.8 MiB/s ETA:   0 s
+info: installing component 'rls'
+info: installing component 'rust-src'
+info: installing component 'rust-analysis'
 
-# Uninstallation
+  stable-x86_64-unknown-linux-gnu updated - rustc 1.35.0 (3c235d560 2019-05-20)
 
+info: checking for self-updates
+info: downloading self-update
 ```
+
+## Uninstallation
+
+```bash
 rustup self uninstall
 ```
 
-# Local Documentation
+## Local Documentation
 
-- How to self-host local documentation:
-
-```
+```bash
 rustup doc
 ```
 
+
 # Hello World
 
-* Code - main.rs
+## main.rs
 
 ```rust
 fn main() {
     println!("Hello, world!") 
 }
 ```
+ 
 . . .
-
-* Compile 
-
+ 
+Compile
 ```bash
 rustc main.rs
 ```
-
+ 
 . . .
-
-* Run
+ 
+Run
 
 ```bash
 ./main
 ```
-
+ 
 . . .
-
-* Output
+ 
+Output
 
 ```bash
 Hello, world!
@@ -231,12 +238,11 @@ Hello, world!
 
 # Cargo
 
-![Cargo](https://doc.rust-lang.org/cargo/images/Cargo-Logo-Small.png)
+## Cargo
 
-# Cargo
+![](https://doc.rust-lang.org/cargo/images/Cargo-Logo-Small.png)
 
 - Build system and package manager
-
 
 . . .
 
@@ -253,7 +259,7 @@ hello_cargo/
     └── main.rs
 ```
 
-# Cargo Build
+## Cargo Build
 
 ```bash
 cd src/hello_cargo
@@ -308,7 +314,7 @@ hello_cargo
 │       └── .rustc_info.json
 ```
 
-# Cargo.toml
+## Cargo.toml
 
  
 . . .
@@ -325,13 +331,11 @@ edition = "2018"
 # Cargo Crates (packages) go here
 ```
  
-. . .
- 
 - Config format: TOML
 - main.rs - same as before
 - Binaries placed at this path: "target\\debug"
 
-# Cargo - Binaries
+## Cargo - Binaries
 
 ```bash
 ./target/debug/hello_cargo
@@ -349,7 +353,7 @@ cargo run # builds source and runs it
 cargo check  # sanity check
 ```
 
-# Cargo - Release
+## Cargo - Release
  
 . . .
  
@@ -382,7 +386,9 @@ target
 ```
 
 # Guessing Game
- 
+
+## Guessing Game - Part 1
+
 . . .
  
 ```rust
@@ -393,7 +399,7 @@ fn main() {
 
     println!("Please input your guess.");
 
-    let mut guess = String::new();
+    let mut guess = String::new(); // mutable
 
     io::stdin().read_line(&mut guess)
         .expect("Failed to read line");
@@ -402,20 +408,212 @@ fn main() {
 }
 ```
 
+## Guessing Game - Build
 
-# Visual Studio Code
-
-Install these extensions (in order):
-
-- [Rust (rls) Extension:rust-lang.rust](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust)
-- [CodeLLDB Extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
-
-# Variables
+```console
+cargo build
+```
  
 . . .
  
+```console
+$ cargo build
+    Updating crates.io index
+  Downloaded libc v0.2.58
+   Compiling libc v0.2.58
+   Compiling rand v0.4.6
+   Compiling rand v0.3.23
+   Compiling guessing_game v0.1.0 (/home/gsaxena/github/rustnote/src/guessing_game)
+    Finished dev [unoptimized + debuginfo] target(s) in 5.18s
+```
+
+## Guessing Game - Cargo.lock
+
+Cargo.lock (Specific builds)
+
+```console
+# This file is automatically @generated by Cargo.
+# It is not intended for manual editing.
+[[package]]
+name = "fuchsia-cprng"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "guessing_game"
+version = "0.1.0"
+dependencies = [
+ "rand 0.3.23 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "libc"
+version = "0.2.58"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "rand"
+version = "0.3.23"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "libc 0.2.58 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rand 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "rand"
+version = "0.4.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "fuchsia-cprng 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libc 0.2.58 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rand_core 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rdrand 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "winapi 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "rand_core"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "rand_core 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "rand_core"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "rdrand"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "rand_core 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "winapi"
+version = "0.3.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "winapi-i686-pc-windows-gnu 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "winapi-x86_64-pc-windows-gnu 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "winapi-i686-pc-windows-gnu"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "winapi-x86_64-pc-windows-gnu"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[metadata]
+"checksum fuchsia-cprng 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "a06f77d526c1a601b7c4cdd98f54b5eaabffc14d5f2f0296febdc7f357c6d3ba"
+"checksum libc 0.2.58 (registry+https://github.com/rust-lang/crates.io-index)" = "6281b86796ba5e4366000be6e9e18bf35580adf9e63fbe2294aadb587613a319"
+"checksum rand 0.3.23 (registry+https://github.com/rust-lang/crates.io-index)" = "64ac302d8f83c0c1974bf758f6b041c6c8ada916fbb44a609158ca8b064cc76c"
+"checksum rand 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)" = "552840b97013b1a26992c11eac34bdd778e464601a4c2054b5f0bff7c6761293"
+"checksum rand_core 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)" = "7a6fdeb83b075e8266dcc8762c22776f6877a63111121f5f8c7411e5be7eed4b"
+"checksum rand_core 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "d0e7a549d590831370895ab7ba4ea0c1b6b011d106b5ff2da6eee112615e6dc0"
+"checksum rdrand 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "678054eb77286b51581ba43620cc911abf02758c91f93f479767aed0f90458b2"
+"checksum winapi 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)" = "f10e386af2b13e47c89e7236a7a14a086791a2b88ebad6df9bf42040195cf770"
+"checksum winapi-i686-pc-windows-gnu 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "ac3b87c63620426dd9b991e5ce0329eff545bccbbb34f3be09ff6fb6ab51b7b6"
+"checksum winapi-x86_64-pc-windows-gnu 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
+```
+
+## Guessing Game - Cargo doc
+
+```console
+$ cargo doc --open
+```
+
+- Generate and open documentation for project
+- Allows you to search for your methods and standard library methods in a web based interface
+
+
+## Guessing Game - Cargo doc
+
+![Cargo Doc](img/cargo_doc.png)
+
+## Guessing Game - Part 2
+
 ```rust
-let foo = bar; // Immutable
+use std::io;
+
+use rand::Rng; // trait
+
+fn main() {
+    println!("Guess the number!");
+
+    let secret_number = rand::thread_rng().gen_range(1, 101);
+    
+    println!("The secret number is: {}", secret_number);
+
+    println!("Please input your guess.");
+
+    let mut guess = String::new();  // mutable
+
+    io::stdin().read_line(&mut guess)
+        .expect("Failed to read line");
+
+    let guess: u32 = guess.trim().parse()  // shadow variable
+        .expect("Please type a number!");
+
+    println!("You guessed: {}", guess);
+
+    match guess.cmp(&secret_number) {   // <-- yields: mismatched types error
+        Ordering::Less => println!("Too Small!"),
+        Ordering::Greater => println!("Too Big!"),
+        Ordering::Equal => println!("You win!"),
+    }
+}
+```
+
+## Guessing Game - Part 3
+
+```rust
+  loop {
+      println!("Please input your guess.");
+
+      // --snip--
+
+      match guess.cmp(&secret_number) {
+          Ordering::Less => println!("Too small!"),
+          Ordering::Greater => println!("Too big!"),
+          Ordering::Equal => println!("You win!"),
+      }
+  }
+```
+
+## Guessing Game - Part 4
+
+```rust
+        let guess: u32 = match guess.trim().parse(){ 
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+        println!("You guessed: {}", guess);
+
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too Small!"),
+            Ordering::Greater => println!("Too Big!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
+        }
+```
+
+# Rust Language
+
+## Variables
+
+```rust
+let foo = bar; // Immutable by default
 ```
  
 . . .
@@ -424,12 +622,272 @@ let foo = bar; // Immutable
 let mut foo = bar; // Mutable
 ```
 
+## Constants
 
-# References
+```rust
+const MAX_POINTS: u32 = 100_000;
+```
 
-\Begin{multicols}{2}
+## Shadow Variables - Same Type
 
-### One
+```rust
+let x = 5;
+
+let x = x + 1;
+
+let x = x * 2;
+
+```
+
+- Notice the use of let keyword
+- As opposed to a simple assignment
+- Enables re-use of the same symbol
+
+## Shadow Variables - Differing Types
+
+```rust
+let spaces = "    ";
+let spaces = spaces.len();
+```
+
+- Can change the type of spaces using let
+
+
+## Scalar Data Types
+
+Integers: 
+i8, u8, i16, u16,i32, u32, i64, u64, i128, u128
+```rust
+let age: i8 = 16;
+```
+- Floating Point Types:
+```rust
+let balance: f32 = 2500.50;
+```
+- Boolean Type:
+```rust
+let isDog: bool = true;
+```
+- Character Type:
+```rust
+let c = 'C'; // single quotes
+```
+
+## Compund Data Types
+
+- Tuple type:
+```rust
+let tup: (i32, f64, u8) = (500, 6.4, 1);
+let (x, y, z) = tup;
+println!("{} {}", x, tup.0);
+```
+- Array Type:
+```rust
+let a = [1,2,3,4,5];
+let b = [2,2,2,2];
+let c = [2;4]; // same as b
+println!("{}", c[1]);
+```
+
+## Functions
+
+```rust
+fn add(x: i32, y: i32){
+  println!("{}", x + y);
+}
+```
+ 
+. . .
+ 
+```rust
+fn five() -> i32 { // return values
+  5  // expression, not statement anymore
+}
+```
+ 
+. . .
+ 
+```rust
+fn plus_one(x: i32) -> i32 {
+  x + 1
+}
+```
+
+## Control Flow
+
+- if expressions
+```rust
+let outcome = if number < 5 {
+  "less than 5"
+} else if number == 5 {
+  "Is 5"
+} else {
+  "greater than 5"
+}
+```
+
+- loop
+```rust
+loop {
+  println!("forever young");
+}
+```
+
+## Control Flow
+
+- while
+```rust
+let mut number = 3;
+while number != 0 {
+  println!("{}", number);
+  number -= 1;
+}
+println!("lift off");
+```
+
+- for
+```rust
+let a = [10, 20, 30, 40, 50];
+for element in a.iter() {
+  println!("{}", element);
+}
+```
+
+## Control Flow
+
+- for
+```rust
+for number in (1..4).rev() {
+    println!("{}!", number);
+}
+println!("LIFTOFF!!!");
+```
+
+# Ownership
+
+## Ownership
+
+- Most unique feature in Rust
+- No need for garbage collector
+- The language provides memory safety guarantees
+
+## Ownership
+
+- Compile time check for memory usage
+- Language defines rules and rustc enforces them
+- At runtime, these rules have no impact on performance
+
+## Ownership 
+
+### Stack
+
+- Quicker access
+- Last in first out
+
+### Heap
+
+- Slower access
+- Pointers used to provide access
+- "Allocating"
+
+## Ownership 
+
+Is concerned with:
+- Keeping track of what parts of code are using what data on heap
+- Minimizing the amount of duplicate data
+- Clean up unused data so you don't run out of space
+
+## Ownership Rules
+
+- Each value has a variable that is called its *Owner*
+- There can only be one owner at a time
+- When the owner goes out of scope, the value will be dropped
+
+## Ownership - Variable Scope
+
+```rust
+{
+  // s comes in scope
+  let s = "hello";
+  // s goes out of scope
+}
+```
+
+## Ownership - String Type
+
+- Complex data type
+- Allocated on the heap
+- Can grow and shrink at runtime
+```rust
+let s = String::from("hello");
+```
+
+- Can be mutated
+```rust
+{
+  let mut s = String::from("hello");
+  s.push_str(", world!");
+} // scope is over, s is not valid; Rust calls "drop" function here
+```
+
+## Ownership - String Type
+
+Two things:
+- Memory must be requested from OS at runtime (String::from)
+- Need a way to return this memory 
+
+Other languages use garbage collector for second part.
+
+## Ownership
+
+```rust
+let s1 = String::from("hello");
+let s2 = s1;
+```
+ 
+. . .
+ 
+![](https://doc.rust-lang.org/stable/book/img/trpl04-01.svg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Related Information
+
+## Visual Studio Code
+
+Install these extensions (in order):
+
+- [Rust (rls) Extension:rust-lang.rust](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust)
+- [CodeLLDB Extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
+
+## References 1/2
+
 - [Rust Programming Language - Home](https://www.rust-lang.org)
 - [Rust Programming Language Book](https://doc.rust-lang.org/book)
 - [Rust by Example](https://doc.rust-lang.org/rust-by-example/index.html)
@@ -440,20 +898,22 @@ let mut foo = bar; // Mutable
 - [RustBridge](https://rustbridge.com/)
 - [RustConf](https://www.rustconf.com/)
 
-### Two
+## References 2/2
+
+- [Github](https://github.com/rust-lang)
 - [Mozilla Research: Rust language](https://research.mozilla.org/rust/)
 - [Mozilla Hacks: Rust Articles](https://hacks.mozilla.org/category/rust-2/)
 - [Rust Playground](https://play.rust-lang.org)
 - [Rust-lang Discord](https://discordapp.com/invite/rust-lang)
 - [Rustaceans](https://www.rustaceans.org/)
 - [Crates](https://crates.io/)
+- [Docs.rs](https://docs.rs/)
 
-\End{multicols}
-
-# Questions?
-
+# Questions ?
 
 # Trivia
+
+## Trivia
 
 Rust is named after:
 
@@ -472,10 +932,10 @@ Answer:
  
 2. A lesser known fungi
 
- 
-# Rust - Fungi
- 
+## Rust - Fungi
+
 - Pathogenic Fungi
+![](img/rust_fungi.png)
 - Scientific classification: Puccinia (Fungi)
 - Obligate pathogen - bacteria that must cause disease in order to be transmitted from one host to another
 - Cannot survive without the plants they infect

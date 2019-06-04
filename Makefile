@@ -1,7 +1,9 @@
 build:
 	./getReveal.sh
 	cp -R img out/
-	pandoc -i -t revealjs -s -o out/slides.html src/slides/slides.md -V revealjs-url=./reveal.js -V theme=white
+	pandoc -i -t revealjs -s src/slides/slides.md -o out/slides.html -V theme=white
+	pandoc -i -s src/slides/slides.md -o out/slides.pptx
+	#pandoc -i -s src/slides/slides.md -o out/slides.pdf
 	cd src/hello_world; rustc main.rs -o ../../out/main
 	cd src/hello_cargo; cargo build
 	cd src/guessing_game; cargo build
