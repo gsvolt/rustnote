@@ -909,6 +909,11 @@ Install these extensions (in order):
 - [Crates](https://crates.io/)
 - [Docs.rs](https://docs.rs/)
 
+## References 3/3
+
+- [InfoQ: Rust Topic](https://www.infoq.com/rust/)
+
+
 # Questions ?
 
 # Trivia
